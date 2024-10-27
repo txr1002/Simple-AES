@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S-AES加解密</title>
+    <script src="AES.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            color: #333;
+            
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            
+        }
+        .button, .expand_button , .CBC_button{
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 9px #999;
+            transition: all 0.3s ease 0s;
+            margin-top: 10px;
+            text-align: center; /* 添加居中对齐 */
+        }
+        .button:hover, .expand_button:hover, .CBC_button:hover {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+        .button:active, .expand_button:active, .CBC_button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 2px #666;
+            transform: translateY(2px);
+        }
+        #output, #output2, #output3, #output4, #output5, #output6, #output7, #output8 {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7e7e7;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>S-AES加解密</h1>
+        <label>明文：</label>
+        <input type="text" value="" class="mw">
+        <label>密钥：</label>
+        <input type="text" value="" class="key">
+        <input type="button" value="加密" class="button" >
+        <input type="button" value="扩展加密" class="expand_button">
+        <input type="button" value="CBC加密" class="CBC_button">
+        <div id="output"></div>
+        <div id="output2"></div>
+        <div id="output3"></div>
+        <div id="output4"></div>
+        <div id="output5"></div>
+        <div id="output6"></div>
+        <div id="output7"></div>
+        <div id="output8"></div>
+    </div>
+    <script>
+        const btn = document.querySelector('.button');
+        btn.addEventListener('click', encrypt);
+        const expand_btn = document.querySelector('.expand_button');
+        expand_btn.addEventListener('click', expansion);
+        const CBC_btn = document.querySelector('.CBC_button');
+        CBC_btn.addEventListener('click', cbcEncrypt);
+    </script>
+</body>
+</html>
